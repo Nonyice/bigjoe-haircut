@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Choose Haircut Style</title>
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Choose Your Haircut Style</h1>
+        <form action="/choose_style" method="POST">
+            <select name="style">
+                {% for index, style in styles %}
+                    <option value="{{ index }}">{{ style[1] }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Choose</button>
+        </form>
+        {% if chosen_style %}
+            <h2>Your Choice: {{ chosen_style }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
